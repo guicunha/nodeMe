@@ -1,7 +1,7 @@
 <?php
 
 namespace app;
-use cromg\init\Bootstrap;
+use conselhos\init\Bootstrap;
 
 /**
  * Description of Bootstrap

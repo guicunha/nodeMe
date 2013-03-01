@@ -5,8 +5,8 @@
  * @author cromg
  */
 
-namespace cromg\db;
-use cromg\di\Container;
+namespace conselhos\db;
+use conselhos\di\Container;
     
 
     

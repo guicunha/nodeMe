@@ -8,8 +8,8 @@
 
 namespace app\controllers;
 
-use cromg\controller\Action,
-    cromg\di\Container,
+use conselhos\controller\Action,
+    conselhos\di\Container,
     app\models\Article;
 
 class Index extends Action{

@@ -6,7 +6,7 @@
  * @author cromg
  */
 
-namespace cromg\di;
+namespace conselhos\di;
 
 class Container {
 

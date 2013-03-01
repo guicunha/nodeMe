@@ -6,7 +6,7 @@
  */
 
 namespace app\models;
-use cromg\db\Table;
+use conselhos\db\Table;
 
 class Article extends Table{
     

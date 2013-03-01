@@ -5,7 +5,7 @@
  * @author cromg
  */
 
-namespace cromg\init;
+namespace conselhos\init;
 
 class Bootstrap {
     

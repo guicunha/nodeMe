@@ -5,7 +5,7 @@
  * @author cromg
  */
 
-namespace cromg\controller;
+namespace conselhos\controller;
 
 abstract class Action {
     

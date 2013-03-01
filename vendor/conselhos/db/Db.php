@@ -5,7 +5,7 @@
  * @author cromg
  */
 
-namespace cromg\db;
+namespace conselhos\db;
 
 class Db {
     
