@@ -7,16 +7,12 @@
 
 namespace conselhos\init;
 
-class Bootstrap {
+abstract class Bootstrap {
     
     protected $routes;
     
    public function __construct() {
-       
-       $ar['xpto'] = ['route' => '/xpto', 'controller' => 'xpto', 'action' => 'index'];
-       $ar['home'] = ['route' => '/', 'controller' => 'index', 'action' => 'index'];
-       
-       $this->setRoutes($ar);
+       $this->_initRoutes();
        $this->run($this->getUrl());
    }
    
@@ -41,5 +37,7 @@ class Bootstrap {
    protected function getUrl(){
        return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
    }
+   
+   abstract protected function _initRoutes();
     
 }

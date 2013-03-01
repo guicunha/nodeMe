@@ -1,2 +1,14 @@
-Resultado da view index.phtml<br />
-<?=$this->view->nome; ?>
+<html>
+    <head>
+        <title>Meu Framework</title>
+    </head>
+    <body>
+        <h3>Sputnick testes</h3>
+        Olá Mundo!<br />
+        <ul>
+            <?php foreach ($this->view->objetos as $artigo): ?>
+                <?= $artigo['nome']; ?>
+            <?php endforeach; ?>
+        </ul>
+    </body>
+</html>

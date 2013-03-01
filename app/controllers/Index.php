@@ -9,16 +9,13 @@
 namespace app\controllers;
 
 use conselhos\controller\Action,
-    conselhos\di\Container,
-    app\models\Article;
+    conselhos\controller\Crud;
 
-class Index extends Action{
+
+
+class Index extends Action {
+    use Crud;
     
-    public function index(){
-        
-        $article = Container::getClass("article");
-        
-        $this->view->nome = $article->getNome();
-        $this->reder('index');
-    }
+    protected $model = "article";
+
 }

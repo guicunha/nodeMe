@@ -10,7 +10,13 @@ use conselhos\db\Table;
 
 class Article extends Table{
     
-    public function getNome(){
-        return "Sputnick";
-    }   
+    protected $table = "article";
+    
+    public function _insert(array $data){
+        return "";
+    }
+    
+    public function _update(array $data){
+        return "";
+    }
 }

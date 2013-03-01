@@ -12,7 +12,7 @@ class Container {
 
     private static function getDb() {
 
-        $db = new \PDO("mysql:host=mysql02.cromg.org.br;dbname=cromg1", "cromg1", "croblong");
+        $db = new \PDO("mysql:host=mysql02.cromg.org.br;dbname=eleicoes", "cromg1", "croblong");
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         return $db;
     }
