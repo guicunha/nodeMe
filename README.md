@@ -20,3 +20,6 @@ Entre as features essenciais encontram-se:
   - Fale conosco com feedback pela própria ferramenta.
   - Sistema de protocolo com acompanhamento de pedido.
   - Sistema Financeiro para impressão de pagamentos e boletos pendentes.
+
+
+![ScreenShot](https://raw.github.com/guicunha/portalConselhos/master/docs/mockup.png)
