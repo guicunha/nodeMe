@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- start: Meta -->
+        <meta charset="utf-8">
+        <title>CampusLove - Pq nerds tb amam!</title>
+        <meta name="description" content="app de chat para convergencia de idéias e informações">
+        <meta name="author" content="guiCorleone">
+        <!-- end: Meta -->
+
+        <!-- suporte do ie6 até o ie8 -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/style-responsive.css" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css">
+        <link rel="stylesheet" href="css/my.css" type="text/css">
+        <link href="style/gemoticons.css" type="text/css" rel="stylesheet" />
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.gemoticons.js"></script>
+        <script src="socket.io/socket.io.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var chat = io.connect();
+                chat.on('connect', function() {
+                    $('#mensagens').val('');
+                    chat.emit('set nick', prompt('Escolha seu nick', ""));
+
+                    chat.on('mensagem', function(mensagem) {
+                        $('#mensagens').prepend('<div class="chat">' + mensagem.texto + '</div>');
+                        $(".chat").gemoticon();
+                        window.scrollTo(0, document.body.scrollHeight);
+                    });
+
+                    chat.on('ready', function() {
+                        console.log('ready');
+                        $('#enviar').click(function() {
+                            chat.emit('mensagem', $('#mensagem').val());
+                            $('#mensagem').val('');
+                        });
+                    });
+                });
+            });
+        </script>
+    <body>
+        <!-- start: Header -->
+        <div class="navbar" style="margin-bottom: 5px">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href=""><img alt="CampusLove" src="/img/hph.png" width="48px" height="48px"> <span>CampusLove - Pq nerds tb amam!</span></a>
+                    <ul class="nav pull-right bar-root" style="margin-top: 10px">
+                        <a href="logout"><span class="label label-info">Guilherme Cunha</span></a>
+                        <span>
+                            <img src="https://graph.facebook.com/guiCorleone/picture" width="32px" height="32px">
+                        </span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end: Header -->
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <!-- start: menu salas -->
+                <div class="span2 main-menu-span">
+                    <div class="span12 chat-popSide"  style="margin-bottom: 30px">
+                        <img src="/img/bantartica.jpg" width="100%"><br />
+                    </div>
+                    <div class="nav-collapse sidebar-nav" style="margin-top: 10px; padding-bottom: 0px">
+                        <ul class="nav nav-stacked main-menu" data-toggle="buttons-radio">
+                            <li>Escolha uma sala</li><br />
+                            <li><a href="?sala=love"><span> Geek Love!</span><span class="pull-right"><span class="badge badge-important">9</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=promo"><span> Promoções</span><span class="pull-right"><span class="badge badge-important">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=aladim"><span> Lista de Desejos</span><span class="pull-right"><span class="badge badge-important">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=silviosantos"><span> Caravanas</span><span class="pull-right"><span class="badge badge-warning">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li class="active"><a href="?sala=palco_principal" data-original-title><span> Palco Principal</span><span class="pull-right"><span class="badge badge-info">50</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=developer"><span> Desenvolvimento</span><span class="pull-right"><span class="badge badge-info">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                            <li><a href="?sala=design"><span> Design</span><span class="pull-right"><span class="badge badge-info">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=midia"><span> Mídias Sociais</span><span class="pull-right"><span class="badge badge-info">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=stadium"><span> Stadium</span><span class="pull-right"><span class="badge badge-info">986</span></span></a></li>
+                            <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            <li><a href="?sala=downloads"><span> Downloads</span><span class="pull-right"><span class="badge badge-success">986</span></span></a></li>
+                        </ul>
+                    </div><!--/.well -->
+                    <div class="row-fluid">
+                        <div class="row-fluid">
+                            <div class="span12 chat-popSide">
+                                <img src="img/sadia.jpg">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/tt.png"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/fb_box_blue.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/gplus.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/flk.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/ytb.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/pt.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/fsq.png" width="32px" height="32px"></span></a>
+                                <a href="http://twitter.com/campusloveBR" target="_blank"><span><img src="/img/bgr.png" width="32px" height="32px"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/span-->
+                <!-- end: menu salas -->
+                <div id="content" class="span7">
+                    <div>
+                        <ul class="breadcrumb" style="margin-top: 3px; margin-bottom: 10px">
+                            Palco Principal
+                        </ul>
+                    </div>
+                    <div id="content" class="span12" style="margin-left: 0px; margin-right: 10px">
+                        <form class="form-vertical" style="margin-bottom: 0px">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <div class="span8">
+                                            <input type="text" placeholder="Escreva sua mensagem aqui" class="span12" name="mensagem" id="mensagem"/></textarea>
+                                        </div>
+                                        <span class="span1 pull-left" style="margin-left: 10px">
+                                            <input type="button" class="btn btn-info btn-small" id='enviar' value="chat">
+                                        </span>
+                                        <div class="controls span3">
+                                            <label class="checkbox boxText">
+                                                <input type="checkbox" value="option1" id="inlineCheckbox1"> enviar com enter<br />
+                                            </label>
+                                            <label class="boxText" style="padding-right: 5px">
+                                                <a href="#"><img src="img/img_icon.gif" height="16px" width="16px"> enviar imagem</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                    </div>
+                </div>
+                <div id="content" class="span3">
+                    <div>
+                        <ul class="breadcrumb" style="margin-top: 3px">
+                            Participantes desta Sala
+                        </ul>
+                        <input type="text" placeholder="Find a camper" class="span12">
+                    </div>
+                </div>
+                <div class="box span7" style="margin-top: 1px">
+                    <div class="box-content" style="margin-top: 1px">
+                        <div class="row-fluid">
+                            <div data-spy="scroll" data-target="" data-offset="0" class="scrollspy-chatbox">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <span class="span1">
+                                            <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                        </span>
+                                        <span id="mensagens" class="span10 chat-message chat" style="margin-left: 0px">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="box span3" style="margin-top: 1px">
+                    <div class="box-content" style="margin-top: 1px">
+                        <div class="row-fluid">
+                            <div data-spy="scroll" data-target="" data-offset="0" class="scrollspy-participantes">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Guilherme Cunha
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px"> 
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb" style="margin-top: 3px; margin-bottom: 0px">
+                        Promoções
+                    </ul>
+                    <div class="box-content" style="margin-top: 1px">
+                        <div class="row-fluid">
+                            <div data-spy="scroll" data-target="" data-offset="0" class="scrollspy-promos">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção I
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção II
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção III
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção IV
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção V
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                                <hr style="color: #000; height: 1px; margin-top: 3px; margin-bottom: 3px">
+                                <span>
+                                    <img src="https://graph.facebook.com/guiCorleone/picture" width="24px" height="24px">
+                                </span>
+                                Promoção VI
+                                <span class="pull-right">
+                                    <img src="/img/male.png" width="20px" height="20px">
+                                    <img src="/img/female.png" width="20px" height="20px">
+                                </span>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+
+            </div>
+            <div class="clearfix"></div>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery.gemoticons.js"></script>
+            <script>
+                jQuery(document).ready(function(){
+                    $(".chat").gemoticon();
+                });
+            </script>
+    </body>
+</html>

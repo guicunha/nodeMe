@@ -1,0 +1,8 @@
+<p>Dados dos alunos</p>
+<% if (alunos.length) { %>
+  <ul>
+    <% alunos.forEach(function(aluno){ %>
+      <li>Nome:<%= nomeCompleto(aluno) %> - Maior de Idade: <%= maiorDeIdade(aluno) %></li>
+    <% }) %>
+  </ul>
+<% } %>

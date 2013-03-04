@@ -1,0 +1,15 @@
+/* 
+    Document   : my
+    Created on : 21/02/2013, 13:48:30
+    Author     : cromg
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.boxText{    
+    font-size: 10px;
+}

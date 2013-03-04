@@ -1,0 +1,7 @@
+<% if (alunos.length) { %>
+  <ul>
+    <% alunos.forEach(function(aluno){ %>
+      <li>Nome:<%= aluno.nome %> - E-mail: <%= aluno.email %></li>
+    <% }) %>
+  </ul>
+<% } %>
