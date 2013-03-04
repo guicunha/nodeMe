@@ -15,7 +15,5 @@ use conselhos\controller\Action,
 
 class Index extends Action {
     use Crud;
-    
     protected $model = "article";
-
 }
