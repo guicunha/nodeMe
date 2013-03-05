@@ -2,21 +2,17 @@
 /**
  * Description of Article
  *
- * @author cromg
+ * @author guilherme cunha <guilherme.cunha@cromg.org.br>
  */
 
 namespace app\models;
-use conselhos\db\Table;
 
-class Article extends Table{
+
+class Article{
     
-    protected $table = "article";
-    
-    public function _insert(array $data){
-        return "";
-    }
-    
-    public function _update(array $data){
-        return "";
+    protected $db;
+   
+    public function __construct($db) {
+        $this->db = $db;
     }
 }
