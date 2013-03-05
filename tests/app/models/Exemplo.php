@@ -21,8 +21,17 @@ class ExemploTest extends PHPUnit_Framework_TestCase {
     
     public function testVerificaSePodeSomar(){
         
-        $this->assertEquals(2,$this->model->somar(1,1));
-        $this->assertEquals(5,$this->model->somar(1,4));
+        $this->assertEquals(2, $this->model->somar(1, 1));
+        $this->assertEquals(3, $this->model->somar(1, 2));
+    }
+    
+    public function testeVerificaSeAsEntradasSaoNumeros(){
+        try{
+            $this->model->somar('a', 'a');
+        }   
+        catch (\Exception $e){
+            $this->assertEquals('não é numerico', $e->getMessage());
+        }
     }
 }
 
