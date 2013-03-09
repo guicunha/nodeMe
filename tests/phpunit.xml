@@ -1,12 +1,11 @@
 <phpunit syntaxCheck="true" bootstrap="app/Init.php" colors="true">
     
-    <testsuite name="app">
-        <direcotry>app/conselhos</direcotry>
-        <file>app/models/ArticleTest.php</file>
+    <testsuite name="Portal Conselhos">
+        <directory>app</directory>
     </testsuite>
     <filter>
         <whitelist>
-            <directory suffix=".php">../app/models</directory>
+            <directory suffix=".php">../app</directory>
             <directory suffix=".php">../vendor/conselhos</directory>
             <exclude>
                 <directory suffix=".php">../app/views</directory>
