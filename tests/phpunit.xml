@@ -1,27 +1,32 @@
-<phpunit bootstrap="./app/Init.php" colors="true">
-
-    <testsuite name="app">
-        <direcotry>./app</direcotry>
-    </testsuite>
+<phpunit syntaxCheck="true" bootstrap="app/Init.php" colors="true">
     
+    <testsuite name="app">
+        <direcotry>app/conselhos</direcotry>
+        <file>app/models/ArticleTest.php</file>
+    </testsuite>
     <filter>
         <whitelist>
-            <directory suffix=".php">../app</directory>
+            <directory suffix=".php">../app/models</directory>
             <directory suffix=".php">../vendor/conselhos</directory>
+            <exclude>
+                <directory suffix=".php">../app/views</directory>
+                <file>../app/Init.php</file>
+            </exclude>
         </whitelist>
-        <exclude>
-            <directory suffix=".phhtml">../app/views</directory>
-            <file>../app/Init.php</file>
-        </exclude>
     </filter>
-    
     <logging>
-        <log type="coverage-html" 
-             target="./log/report" 
-             charset="UTF-8" yui="true" hightlight="true" 
-             lowUpperBound="35" hightLowerBound="70" />
+        <log
+            type="coverage-html" 
+            target="log/report" 
+            charset="UTF-8" 
+            yui="true" 
+            hightlight="true" 
+            lowUpperbound="35" hightLowerBound="75" />
         
-        <log type="testdox-html" target="./log/testdox" />
+        <log 
+            type="testdox-html"
+            target="log/testdox.html" />
         
-    </logging>   
+        
+    </logging>
 </phpunit>
