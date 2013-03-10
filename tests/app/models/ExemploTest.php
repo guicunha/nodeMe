@@ -5,8 +5,6 @@
  * @author cromg
  */
 
-require '../app/models/Exemplo.php';
-
 class ExemploTest extends PHPUnit_Framework_TestCase {
     
     private $model;
@@ -16,7 +14,7 @@ class ExemploTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testVerificaTipoDoObjeto(){
-        $this->assertInstanceOf('\app\models\Exemplo', $this->model );
+        $this->assertInstanceOf('app\models\Exemplo', $this->model );
     }
     
     public function testVerificaSePodeSomar(){
