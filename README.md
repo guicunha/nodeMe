@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 portalConselhos
 Ver. 1.0 - 03/03/2013
 
